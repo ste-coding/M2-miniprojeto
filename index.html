@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Thriftopia</title>
+    <link href="/assets/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+        <span>Cadastro de Peças</span>
+        <button onclick="openModal()" id="new">Incluir</i></button>
+        </div>
+
+        <div class="divTable">
+        <table>
+            <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Tamanho</th>
+                <th>Estado da Peça</th>
+                <th class="acao">Editar</th>
+                <th class="acao">>Excluir</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            </tbody>
+        </table>
+        </div>
+
+        <div class="modal-container">
+        <div class="modal">
+            <form>
+            <label for="m-descricao">Descrição</label>
+            <input id="m-descricao" type="text" required/>
+
+            <label for="m-tamanho">Tamanho</label>
+            <input id="m-tamanho" type="text" required/>
+
+            <label for="m-estado">Estado da Peça</label>
+            <input id="m-estado" type="text" required/>
+
+            <button id="btn-salvar">Salvar</button>
+            </form>
+        </div>
+            
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
