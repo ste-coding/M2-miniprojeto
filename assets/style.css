@@ -4,34 +4,85 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+}
+
+button {
+    cursor: pointer;
+    border: none;
 }
 
 body {
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0,0,0,0.1);
-}
-
-button {
-    cursor: pointer;
+    background-color: #2b1055;
+    font-family: 'Poppins', sans-serif;
 }
 
 .container {
-    width: 90%;
+    width: 80%;
     height: 80%;
     border-radius: 10px;
     background: white;
 }
 
+.logo-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logo-container img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.filter-form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.filter-form label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.filter-form input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.filter-form input:focus {
+    border-color: rgb(57, 57, 226);
+}
+
+.filtered-row {
+    background-color: rgba(57, 57, 226, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.filtered-row:hover {
+    background-color: rgba(57, 57, 226, 0.3);
+}
+
 .header {
     min-height: 70px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     margin: auto 12px;
 }
 
@@ -39,15 +90,24 @@ button {
     font-weight: 900;
     font-size: 20px;
     word-break: break-all;
+    display: flex;
+    align-items: center;
 }
 
 #new {
-    font-size: 16px;
-    padding: 8px;
-    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    width: 40px;
+    height: 40px;
     border: none;
-    color: white;
-    background-color: rgb(57, 57, 226);
+    background: none; 
+}
+
+#new i {
+    font-size: 20px;
+    margin-right: 0px;
 }
 
 .divTable {
@@ -82,20 +142,13 @@ tr {
     border-bottom: 1px solid rgb(238, 235, 235)!important;
 }
 
-tbody tr td {
-    vertical-align: text-top;
-    padding: 6px;
-    max-width: 50px;
+tbody tr {
+    margin-bottom: 50px;
 }
 
 thead tr th {
     padding: 5px;
     text-align: start;
-    margin-bottom: 50px;
-}
-
-tbody tr {
-    margin-bottom: 50px;
 }
 
 thead tr th.acao {
@@ -103,44 +156,15 @@ thead tr th.acao {
     text-align: center;
 }
 
+tbody tr td {
+    vertical-align: text-top;
+    padding: 6px;
+    max-width: 50px;
+}
+
 tbody tr td.acao {
     text-align: center;
 }
-
-@media (max-width: 700px) {
-    body {
-        font-size: 10px;
-    }
-
-    .header span {
-        font-size: 15px;
-    }
-
-    #new {
-        padding: 5px;
-        font-size: 10px;
-    }
-
-    thead tr th.acao {
-        width: auto!important;
-    }
-
-    td button i {
-        font-size: 20px!important;
-    }
-
-    td button i:first-child {
-        margin-right: 0;
-    }
-
-    .modal {
-        width: 90%!important;
-    }
-
-    .modal label {
-        font-size: 12px!important;
-    }
-    }
 
 .modal-container {
     width: 100vw;
@@ -171,26 +195,22 @@ tbody tr td.acao {
 }
 
 .modal input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
     width: 100%;
-    outline: none;
-    padding: 5px 10px; 
-    width: 100%;
-    margin-bottom: 20px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
 }
 
 .modal button {
-    width: 100%;
-    margin: 10px auto;
-    outline: none;
-    border-radius: 20px; 
-    padding: 5px 10px; 
-    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
     border: none;
     background-color: rgb(57, 57, 226);
     color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
 }
 
 .active {
@@ -201,14 +221,88 @@ tbody tr td.acao {
     animation: modal .4s;
 }
 
-@keyframes modal {
-    from {
-        opacity: 0;
-        transform: translate3d(0, -60px, 0);
+
+@media (max-width: 700px) {
+    body {
+        font-size:    10px;
     }
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
+
+    .header span {
+        font-size: 15px;
+    }
+
+    #new {
+        padding: 5px;
+        font-size: 10px;
+    }
+
+    thead tr th.acao {
+        width: auto!important;
+    }
+
+    td button i {
+        font-size: 20px!important;
+    }
+
+    td button i:first-child {
+        margin-right: 0;
+    }
+
+    .modal {
+        width: 90%!important;
+    }
+
+    .modal label {
+        font-size: 12px!important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 95%;
+    }
+    
+    .header span {
+        font-size: 15px;
+    }
+    
+    #new {
+        width: 30px;
+        height: 30px;
+    }
+    
+    #new i {
+        font-size: 16px;
+    }
+    
+    .modal {
+        width: 90%!important;
+    }
+    
+    .modal label {
+        font-size: 12px!important;
+    }
+
+    table {
+        max-width: 100%;
+    }
+
+    tbody tr td {
+        padding: 4px;
+        font-size: 12px;
+    }
+
+    thead tr th {
+        padding: 4px;
+        font-size: 12px;
+    }
+
+    .divTable {
+        overflow-x: auto;
+    }
+    
+    .modal input {
+        font-size: 12px;
     }
 }
 
@@ -224,4 +318,28 @@ td button i {
 
 td button i:first-child {
     margin-right: 10px;
+}
+
+.modal label {
+    font-size: 14px;
+    margin-top: 10px;
+    display: block;
+}
+
+.modal input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.modal button {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background-color: #2b1055;
+    color: white;
+    font-size: 16px;
+    width: 100%;
 }
